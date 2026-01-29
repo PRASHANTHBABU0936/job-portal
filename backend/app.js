@@ -64,7 +64,7 @@ import applicationRouter from "./routes/applicationRouter.js";
 // newsLetterCron();
 
 const app = express();
-config({ path: "./config/config.env" });
+config({ path: "./.env" });
 
 /* =========================
    CORS – FINAL & CORRECT
@@ -72,6 +72,7 @@ config({ path: "./config/config.env" });
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
+  process.env.FRONTEND_URL,
 ];
 
 app.use(

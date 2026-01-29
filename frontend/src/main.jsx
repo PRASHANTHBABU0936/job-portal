@@ -18,11 +18,13 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 import axios from "axios";
 
+import config from "./config.js";
+
 /* =========================
    AXIOS GLOBAL CONFIG
    (THIS FIXES CORS + COOKIES)
    ========================= */
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = config.API_URL;
 axios.defaults.withCredentials = true;
 /* ========================= */
 

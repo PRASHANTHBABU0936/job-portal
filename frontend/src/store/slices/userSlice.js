@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import config from "../../config";
 
 const userSlice = createSlice({
   name: "user",
@@ -92,7 +93,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(userSlice.actions.registerRequest());
   try {
     const response = await axios.post(
-      "http://localhost:4000/api/v1/user/register",
+      `${config.API_URL}/api/v1/user/register`,
       data,
       {
         withCredentials: true,
@@ -109,7 +110,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const response = await axios.post(
-      "http://localhost:4000/api/v1/user/login",
+      `${config.API_URL}/api/v1/user/login`,
       data,
       {
         withCredentials: true,
@@ -127,7 +128,7 @@ export const getUser = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchUserRequest());
   try {
     const response = await axios.get(
-      "http://localhost:4000/api/v1/user/getuser",
+      `${config.API_URL}/api/v1/user/getuser`,
       {
         withCredentials: true,
       }
@@ -141,7 +142,7 @@ export const getUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "http://localhost:4000/api/v1/user/logout",
+      `${config.API_URL}/api/v1/user/logout`,
       {
         withCredentials: true,
       }
